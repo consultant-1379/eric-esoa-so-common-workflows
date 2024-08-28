@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ~ COPYRIGHT Ericsson 2023
+ ~
+ ~
+ ~
+ ~ The copyright to the computer program(s) herein is the property of
+ ~
+ ~ Ericsson Inc. The programs may be used and/or copied only with written
+ ~
+ ~ permission from Ericsson Inc. or in accordance with the terms and
+ ~
+ ~ conditions stipulated in the agreement/contract under which the
+ ~
+ ~ program(s) have been supplied.
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ericsson.oss.orchestration.so</groupId>
+        <artifactId>so-master</artifactId>
+        <version>3.0.53</version>
+    </parent>
+
+    <groupId>com.ericsson.bos.so</groupId>
+    <artifactId>eric-esoa-so-common-workflows</artifactId>
+    <version>1.5.8-1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>eric-so-common-workflows-bpmn</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <!--       Maven plugin versions -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!--       3PP versions -->
+        <flogger.version>0.4</flogger.version>
+
+        <domain.orchestrator.consumer.version>5.5.2-1</domain.orchestrator.consumer.version>
+        <domain.orchestrator.version>4.5.1-1</domain.orchestrator.version>
+        <workflow.version>5.6.3-1</workflow.version>
+        <engine.version>5.8.12-1</engine.version>
+        <error.message.factory.version>6.0.0-1</error.message.factory.version>
+        <eric.esoa.common.logging.version>2.0.12-1</eric.esoa.common.logging.version>
+        <!-- Note: below versions referenced in both workflow and engine. If updating need to update in
+        those services and ensure compatibility-->
+        <toe.api.version>4.7.1-1</toe.api.version>
+        <toe.client.version>4.7.1-1</toe.client.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/docker/eso-common-workflow-bpmn</directory>
+                            <includes>
+                                <include>*.jar</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
